@@ -4,8 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Studio Carmen Bastos | Salão de Beleza e Estética em Barueri - SP</title>
-<meta name="description" content="Salão de beleza e estética em Barueri com nota 5,0 no Google. Loiros, luzes, tratamentos e protocolos personalizados. Agende pelo WhatsApp a qualquer hora.">
+<meta name="description" content="Salão de beleza e estética em Barueri com nota 5,0 no Google. Loiros, luzes, tratamentos e protocolos personalizados. Envie seu pedido pelo WhatsApp a qualquer hora.">
 <meta name="theme-color" content="#0e0c0d">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Studio Carmen Bastos | Beleza e Estética em Barueri">
+<meta property="og:description" content="Nota 5,0 no Google. Protocolos personalizados para loiros, luzes e tratamentos. Agende pelo WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -22,6 +26,8 @@
 }
 </script>
 
+<noscript><style>.rv-in{opacity:1!important;transform:none!important}</style></noscript>
+
 <style>
 :root{
   --ink:#0e0c0d; --ink2:#181415; --paper:#f5f0ea; --white:#fff;
@@ -34,20 +40,25 @@ html{scroll-behavior:smooth;scroll-padding-top:80px}
 body{font-family:'DM Sans',sans-serif;background:var(--ink);color:var(--white);line-height:1.65;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.02;letter-spacing:-.03em;font-weight:800}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.05;letter-spacing:-.03em;font-weight:800;overflow-wrap:break-word}
 .wrap{width:min(1240px,92%);margin:auto}
 section{padding:120px 0;position:relative}
 .light{background:var(--paper);color:var(--ink)}
 .tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:8px 16px;border-radius:100px;border:1px solid currentColor;margin-bottom:22px;color:var(--coral2)}
 .light .tag{color:var(--coral)}
-.h2{font-size:clamp(2.3rem,5.4vw,4.4rem);margin-bottom:20px}
+.h2{font-size:clamp(2.1rem,5vw,4.2rem);margin-bottom:20px}
 .h2 span{color:var(--coral2)}
 .light .h2 span{color:var(--coral)}
 .sub{max-width:600px;color:var(--muted);font-size:1.05rem}
 .light .sub{color:var(--mutedD)}
 :focus-visible{outline:3px solid var(--coral2);outline-offset:3px}
 
-.btn{display:inline-flex;align-items:center;gap:10px;padding:17px 30px;border-radius:100px;font-weight:700;font-size:.95rem;border:0;cursor:pointer;font-family:inherit;transition:.35s var(--ease)}
+/* icones */
+.ic{width:1.1em;height:1.1em;flex:none;display:inline-block;vertical-align:middle}
+.st{display:flex;gap:3px;color:#f5a623}
+.st .ic{width:1.15rem;height:1.15rem}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:100px;font-weight:700;font-size:.95rem;border:0;cursor:pointer;font-family:inherit;transition:.35s var(--ease);text-align:center}
 .btn-c{background:var(--coral);color:#fff}
 .btn-c:hover{background:var(--coral2);transform:translateY(-3px)}
 .btn-g{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
@@ -64,13 +75,14 @@ section{padding:120px 0;position:relative}
 
 #bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--coral);z-index:300}
 
-/* header */
-header{position:fixed;inset:0 0 auto 0;z-index:200;padding:14px 0;transition:.4s var(--ease)}
-header.s{background:rgba(14,12,13,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.25rem;letter-spacing:-.03em;display:flex;align-items:center;gap:10px}
+/* header (o blur fica no pseudo-elemento para nao quebrar o menu mobile) */
+header{position:fixed;inset:0 0 auto 0;z-index:200;padding:14px 0}
+header::before{content:"";position:absolute;inset:0;background:rgba(14,12,13,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);opacity:0;transition:opacity .4s var(--ease)}
+header.s::before{opacity:1}
+.nav{position:relative;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.25rem;letter-spacing:-.03em;display:flex;align-items:center;gap:10px;position:relative;z-index:260}
 .logo b{width:38px;height:38px;border-radius:12px;background:var(--coral);display:grid;place-items:center;font-size:1.1rem}
-.menu{display:flex;gap:30px;list-style:none;align-items:center}
+.menu{display:flex;gap:26px;list-style:none;align-items:center}
 .menu a.l{font-size:.9rem;font-weight:500;color:rgba(255,255,255,.75);transition:.3s}
 .menu a.l:hover,.menu a.l.on{color:#fff}
 .burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative;z-index:260}
@@ -80,58 +92,67 @@ header.s{background:rgba(14,12,13,.82);backdrop-filter:blur(16px);border-bottom:
 .burger.o i:nth-child(2){top:21px;transform:rotate(-45deg)}
 
 /* hero */
-.hero{min-height:100vh;padding:130px 0 70px;display:flex;align-items:center;background:
+.hero{min-height:100vh;padding:130px 0 80px;display:flex;align-items:center;background:
  radial-gradient(55% 50% at 85% 15%,rgba(226,114,91,.25),transparent 70%),var(--ink)}
 .hero-g{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
-.hero h1{font-size:clamp(3rem,7.4vw,6.6rem);margin-bottom:26px}
+.hero-g>*{min-width:0}
+.hero h1{font-size:clamp(2.6rem,6.6vw,6rem);margin-bottom:26px}
 .hero h1 span{color:var(--coral2);font-style:italic;font-weight:600}
 .hero p.sub{margin-bottom:36px}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
 .chip{display:flex;align-items:center;gap:8px;font-size:.82rem;padding:10px 16px;border:1px solid var(--line);border-radius:100px;background:rgba(255,255,255,.04)}
 .chip b{color:var(--champ)}
+.chip .ic{color:#f5a623}
 .hero-img{position:relative}
 .hero-img .img{aspect-ratio:4/5;border-radius:var(--r);border-bottom-right-radius:160px}
 .float{position:absolute;background:#fff;color:var(--ink);border-radius:20px;padding:16px 20px;box-shadow:0 30px 60px -20px #000;animation:fl 7s ease-in-out infinite}
 .float.a{left:-30px;bottom:50px}
 .float.b{right:-14px;top:36px;animation-delay:-3s;background:var(--coral);color:#fff}
 .float b{font-family:'Bricolage Grotesque';font-size:2rem;line-height:1;display:block}
-.float small{font-size:.74rem;opacity:.75}
+.float small{font-size:.74rem;opacity:.8}
 @keyframes fl{50%{transform:translateY(-14px)}}
 
-/* pilares */
+/* tres entregas */
 .pillars{padding:0;background:var(--champ);color:var(--ink)}
 .pillars .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
-.pil{padding:34px 30px;border-right:1px solid var(--lineD);display:flex;gap:16px;align-items:flex-start}
+.pil{padding:34px 30px;border-right:1px solid var(--lineD);display:flex;gap:16px;align-items:flex-start;transition:background .4s var(--ease)}
+.pil:hover{background:rgba(255,255,255,.45)}
 .pil:last-child{border:0}
 .pil em{font-style:normal;font-family:'Bricolage Grotesque';font-weight:800;font-size:2.2rem;color:var(--coral);line-height:1}
-.pil b{display:block;font-family:'Bricolage Grotesque';font-size:1.2rem;letter-spacing:-.02em}
-.pil span{font-size:.86rem;opacity:.7}
+.pil b{display:block;font-family:'Bricolage Grotesque';font-size:1.2rem;letter-spacing:-.02em;line-height:1.2;margin-bottom:4px}
+.pil span{font-size:.86rem;opacity:.75;display:block}
 
-/* ache a gente */
+/* entrega 01 */
 .find-g{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.gcard{background:#fff;color:var(--ink);border-radius:var(--r);padding:34px;box-shadow:0 40px 80px -40px rgba(0,0,0,.35)}
+.find-g>*{min-width:0}
+.chan{list-style:none;display:grid;gap:14px;margin-top:30px}
+.chan li{display:flex;gap:14px;align-items:flex-start}
+.chan i{flex:none;width:42px;height:42px;border-radius:12px;background:rgba(226,114,91,.15);color:var(--coral2);display:grid;place-items:center}
+.chan b{display:block}
+.chan span{font-size:.88rem;color:var(--muted)}
+.gcard{background:#fff;color:var(--ink);border-radius:var(--r);padding:34px;box-shadow:0 40px 80px -40px rgba(0,0,0,.5)}
 .gcard .top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.gcard .g{width:46px;height:46px;border-radius:50%;background:conic-gradient(#ea4335 0 25%,#fbbc05 0 50%,#34a853 0 75%,#4285f4 0);display:grid;place-items:center}
+.gcard .g{flex:none;width:46px;height:46px;border-radius:50%;background:conic-gradient(#ea4335 0 25%,#fbbc05 25% 50%,#34a853 50% 75%,#4285f4 75% 100%);display:grid;place-items:center}
 .gcard .g i{width:34px;height:34px;background:#fff;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:800;color:#4285f4}
-.gcard .rt{display:flex;align-items:center;gap:12px;margin:6px 0 20px}
+.gcard .rt{display:flex;align-items:center;gap:14px;margin:6px 0 20px}
 .gcard .rt b{font-family:'Bricolage Grotesque';font-size:3.4rem;line-height:1}
-.gcard .st{color:#f5a623;letter-spacing:4px;font-size:1.2rem}
 .gcard ul{list-style:none;display:grid;gap:10px;margin-bottom:24px;font-size:.92rem;color:var(--mutedD)}
-.gcard ul li::before{content:"✓";color:var(--coral);font-weight:800;margin-right:10px}
+.gcard ul li{display:flex;gap:10px;align-items:flex-start}
+.gcard ul li .ic{color:var(--coral);margin-top:.2em}
 .gbtns{display:flex;gap:10px;flex-wrap:wrap}
-.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:70px}
+.ig-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:80px}
+.ig{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:24px}
 .ig .img{aspect-ratio:1;border-radius:18px;transition:.5s var(--ease)}
 .ig .img:hover{transform:scale(1.04) rotate(-1deg)}
-.ig-h{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-top:70px}
-.ig{grid-template-columns:repeat(6,1fr);margin-top:24px}
 
-/* autoridade */
+/* entrega 02 */
 .auth-g{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.auth-g>*{min-width:0}
 .auth-g .img{aspect-ratio:4/5;border-radius:var(--r);border-top-left-radius:160px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:34px 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:34px 0}
 .stat{padding:22px;border-radius:20px;background:#fff;border:1px solid var(--lineD)}
-.stat b{font-family:'Bricolage Grotesque';font-size:2.8rem;color:var(--coral);line-height:1;display:block}
-.stat small{color:var(--mutedD);font-size:.8rem}
+.stat b{font-family:'Bricolage Grotesque';font-size:clamp(2rem,4vw,2.8rem);color:var(--coral);line-height:1;display:block}
+.stat small{color:var(--mutedD);font-size:.8rem;display:block;line-height:1.3;margin-top:6px}
 .steps{display:grid;gap:14px}
 .step{display:flex;gap:18px;padding:20px 22px;border-radius:20px;background:#fff;border:1px solid var(--lineD);transition:.4s var(--ease)}
 .step:hover{transform:translateX(8px);border-color:var(--coral)}
@@ -139,39 +160,41 @@ header.s{background:rgba(14,12,13,.82);backdrop-filter:blur(16px);border-bottom:
 .step b{display:block;font-family:'Bricolage Grotesque';font-size:1.15rem}
 .step span{font-size:.88rem;color:var(--mutedD)}
 
-/* serviços bento */
-.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:16px;margin-top:50px}
-.bx{position:relative;border-radius:var(--r);overflow:hidden;display:flex;align-items:flex-end;padding:24px;cursor:pointer;isolation:isolate}
-.bx .img{position:absolute;inset:0;z-index:-2;transition:.8s var(--ease)}
-.bx::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,12,13,.85),transparent 65%);z-index:-1}
-.bx:hover .img{transform:scale(1.08)}
-.bx h3{font-size:1.5rem;margin-bottom:4px}
-.bx p{font-size:.82rem;color:rgba(255,255,255,.75);max-height:0;overflow:hidden;opacity:0;transition:.5s var(--ease)}
-.bx:hover p{max-height:90px;opacity:1}
-.bx .go{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;transition:.4s;transform:rotate(-45deg)}
-.bx:hover .go{background:var(--coral);color:#fff;transform:none}
-.bx:nth-child(1){grid-column:span 2;grid-row:span 2}
-.bx:nth-child(4){grid-column:span 2}
-
 /* antes e depois */
-.ba-g{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.ba-g{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center;margin-top:110px}
+.ba-g>*{min-width:0}
 .cmp{position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;user-select:none;touch-action:pan-y;box-shadow:0 40px 80px -40px rgba(0,0,0,.4)}
 .cmp .img{position:absolute;inset:0;border-radius:0}
 .cmp .after{clip-path:inset(0 0 0 50%)}
 .cmp .lbl{position:absolute;top:16px;padding:6px 14px;border-radius:100px;background:rgba(14,12,13,.7);color:#fff;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;z-index:3}
 .cmp .lbl.l{left:16px}.cmp .lbl.r{right:16px;background:var(--coral)}
-.cmp .hd{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;z-index:4;pointer-events:none}
-.cmp .hd::after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-weight:700;box-shadow:0 8px 20px rgba(0,0,0,.3)}
+.cmp .hd{position:absolute;top:0;bottom:0;left:50%;width:3px;margin-left:-1.5px;background:#fff;z-index:4;pointer-events:none}
+.cmp .hd span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.3)}
 .cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:5;margin:0}
 .ticks{list-style:none;display:grid;gap:14px;margin:28px 0 34px}
 .ticks li{display:flex;gap:12px;color:var(--mutedD)}
-.ticks li::before{content:"✦";color:var(--coral)}
+.ticks li .ic{color:var(--coral);margin-top:.25em}
 
-/* avaliações */
+/* servicos */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:230px;gap:16px;margin-top:50px}
+.bx{position:relative;border-radius:var(--r);overflow:hidden;display:flex;align-items:flex-end;padding:24px;cursor:pointer;isolation:isolate;min-width:0}
+.bx .img{position:absolute;inset:0;z-index:-2;transition:.8s var(--ease)}
+.bx::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,12,13,.88),transparent 70%);z-index:-1}
+.bx:hover .img{transform:scale(1.08)}
+.bx h3{font-size:1.45rem;margin-bottom:4px}
+.bx p{font-size:.82rem;color:rgba(255,255,255,.8);max-height:0;overflow:hidden;opacity:0;transition:.5s var(--ease)}
+.bx:hover p,.bx:focus-visible p{max-height:90px;opacity:1}
+.bx .go{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;transition:.4s;transform:rotate(-45deg)}
+.bx:hover .go,.bx:focus-visible .go{background:var(--coral);color:#fff;transform:none}
+/* distribuicao sem buracos: 6 cards em 4 colunas */
+.bx:nth-child(1){grid-column:span 2;grid-row:span 2}
+.bx:nth-child(4){grid-column:span 2}
+.bx:nth-child(5),.bx:nth-child(6){grid-column:span 2}
+
+/* avaliacoes */
 .rev-g{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
-.rv{background:var(--ink2);border:1px solid var(--line);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:16px;transition:.4s var(--ease)}
+.rv{background:var(--ink2);border:1px solid var(--line);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:16px;transition:.4s var(--ease);min-width:0}
 .rv:hover{transform:translateY(-8px);border-color:var(--coral)}
-.rv .st{color:#f5a623;letter-spacing:4px}
 .rv p{font-size:1.02rem;flex:1}
 .rv .re{font-size:.8rem;color:var(--muted);border-left:2px solid var(--coral);padding-left:12px}
 .rv .au{display:flex;align-items:center;gap:12px;font-weight:700;font-size:.9rem}
@@ -179,9 +202,10 @@ header.s{background:rgba(14,12,13,.82);backdrop-filter:blur(16px);border-bottom:
 .mini{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .mini span{border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-size:.84rem;color:var(--muted)}
 
-/* whatsapp 24h */
+/* entrega 03 */
 .wa{background:linear-gradient(160deg,#0c1f17,#0e0c0d 70%)}
 .wa-g{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.wa-g>*{min-width:0}
 .feat{list-style:none;display:grid;gap:16px;margin:30px 0 36px}
 .feat li{display:flex;gap:14px}
 .feat i{flex:none;width:40px;height:40px;border-radius:12px;background:rgba(37,211,102,.15);color:#25d366;display:grid;place-items:center;font-style:normal;font-weight:800}
@@ -192,24 +216,25 @@ header.s{background:rgba(14,12,13,.82);backdrop-filter:blur(16px);border-bottom:
 .ph-top i{width:38px;height:38px;border-radius:50%;background:var(--coral);display:grid;place-items:center;font-style:normal;font-weight:800}
 .ph-top small{display:block;color:#25d366;font-size:.7rem}
 .ph-body{background:#0b141a;padding:18px;min-height:330px;display:flex;flex-direction:column;gap:10px;font-size:.85rem}
-.msg{max-width:84%;padding:10px 14px;border-radius:14px;opacity:0;transform:translateY(10px);animation:in .6s var(--ease) forwards}
+.msg{max-width:86%;padding:10px 14px;border-radius:14px;opacity:0;transform:translateY(10px);animation:in .6s var(--ease) forwards}
 .msg.in{background:#202c33;border-top-left-radius:2px}
 .msg.out{background:#005c4b;align-self:flex-end;border-top-right-radius:2px}
 .msg small{display:block;text-align:right;font-size:.62rem;opacity:.6;margin-top:3px}
-@keyframes in{to{opacity:1;transform:none}}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .msg:nth-child(1){animation-delay:.3s}.msg:nth-child(2){animation-delay:1.4s}.msg:nth-child(3){animation-delay:2.5s}.msg:nth-child(4){animation-delay:3.6s}
 
 /* contato */
 .ct-g{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px}
+.ct-g>*{min-width:0}
 .info{display:grid;gap:18px;margin-top:30px}
 .info div{display:flex;gap:14px}
-.info i{flex:none;width:46px;height:46px;border-radius:14px;background:var(--ink);color:#fff;display:grid;place-items:center;font-style:normal}
+.info i{flex:none;width:46px;height:46px;border-radius:14px;background:var(--ink);color:#fff;display:grid;place-items:center}
 .info b{display:block;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mutedD)}
-form{background:#fff;padding:40px;border-radius:var(--r);display:grid;gap:16px;box-shadow:0 40px 80px -40px rgba(0,0,0,.3)}
+form{background:#fff;color:var(--ink);padding:40px;border-radius:var(--r);display:grid;gap:16px;box-shadow:0 40px 80px -40px rgba(0,0,0,.3)}
 .f{position:relative}
-.f input,.f select,.f textarea{width:100%;padding:22px 16px 9px;border:1px solid var(--lineD);border-radius:14px;font:inherit;background:var(--paper);outline:none;resize:none;color:var(--ink);transition:.3s}
+.f input,.f select,.f textarea{width:100%;padding:24px 16px 9px;border:1px solid var(--lineD);border-radius:14px;font:inherit;background:var(--paper);outline:none;resize:none;color:var(--ink);transition:.3s}
 .f input:focus,.f select:focus,.f textarea:focus{border-color:var(--coral);background:#fff}
-.f label{position:absolute;left:16px;top:6px;font-size:.68rem;font-weight:700;color:var(--coral);letter-spacing:.05em;pointer-events:none}
+.f label{position:absolute;left:16px;top:7px;font-size:.68rem;font-weight:700;color:var(--coral);letter-spacing:.05em;pointer-events:none}
 .map{margin-top:60px;height:360px;border-radius:var(--r);overflow:hidden}
 .map iframe{width:100%;height:100%;border:0;filter:grayscale(.6) contrast(1.05)}
 
@@ -220,17 +245,17 @@ footer ul{list-style:none;display:grid;gap:8px;font-size:.9rem}
 footer a:hover{color:var(--coral2)}
 .copy{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);font-size:.8rem}
 
-/* chat widget */
-.fab{position:fixed;right:22px;bottom:22px;z-index:250;display:flex;align-items:center;gap:12px;background:#25d366;color:#052e16;border:0;border-radius:100px;padding:10px 22px 10px 10px;font:700 .9rem 'DM Sans';cursor:pointer;box-shadow:0 14px 34px -8px #25d366;animation:pl 2.6s infinite}
+/* assistente */
+.fab{position:fixed;right:22px;bottom:22px;z-index:250;display:flex;align-items:center;gap:12px;background:#25d366;color:#052e16;border:0;border-radius:100px;padding:10px 22px 10px 10px;font:700 .9rem 'DM Sans';cursor:pointer;box-shadow:0 14px 34px -8px #25d366;animation:pl 2.6s infinite;text-align:left}
 .fab i{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;font-size:1.3rem}
 .fab small{display:block;font-weight:500;font-size:.68rem;opacity:.75}
 @keyframes pl{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 20px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 .chat{position:fixed;right:22px;bottom:96px;z-index:260;width:min(380px,calc(100vw - 32px));background:#0b141a;color:#fff;border-radius:26px;border:1px solid rgba(255,255,255,.15);box-shadow:0 40px 80px -20px #000;display:none;flex-direction:column;overflow:hidden}
-.chat.open{display:flex;animation:in .5s var(--ease) forwards;opacity:0}
+.chat.open{display:flex;animation:in .5s var(--ease)}
 .ch-h{background:#202c33;padding:16px 18px;display:flex;justify-content:space-between;align-items:center}
 .ch-h b{display:block}.ch-h small{color:#25d366;font-size:.72rem}
-.ch-h button{background:none;border:0;color:#fff;font-size:1.3rem;cursor:pointer}
-.ch-b{padding:16px;height:340px;overflow:auto;display:flex;flex-direction:column;gap:10px;font-size:.88rem}
+.ch-h button{background:none;border:0;color:#fff;cursor:pointer;width:36px;height:36px;display:grid;place-items:center}
+.ch-b{padding:16px;height:min(340px,45vh);overflow:auto;display:flex;flex-direction:column;gap:10px;font-size:.88rem}
 .ch-b .m{max-width:86%;padding:10px 14px;border-radius:14px}
 .ch-b .bot{background:#202c33;border-top-left-radius:2px}
 .ch-b .me{background:#005c4b;align-self:flex-end;border-top-right-radius:2px}
@@ -238,48 +263,88 @@ footer a:hover{color:var(--coral2)}
 .qr button{background:transparent;color:#25d366;border:1px solid #25d366;border-radius:100px;padding:8px 14px;font:600 .8rem 'DM Sans';cursor:pointer;transition:.3s}
 .qr button:hover{background:#25d366;color:#052e16}
 .qr input{flex:1;min-width:0;padding:11px 16px;border-radius:100px;border:1px solid rgba(255,255,255,.2);background:#202c33;color:#fff;font:inherit;outline:none}
-.up{position:fixed;left:20px;bottom:24px;z-index:240;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--ink2);color:#fff;cursor:pointer;opacity:0;visibility:hidden;transition:.4s}
+.up{position:fixed;left:20px;bottom:24px;z-index:240;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--ink2);color:#fff;cursor:pointer;opacity:0;visibility:hidden;transition:.4s;display:grid;place-items:center}
 .up.show{opacity:1;visibility:visible}
 
 .rv-in{opacity:0;transform:translateY(40px);transition:1s var(--ease)}
 .rv-in.in{opacity:1;transform:none}
 
+@media(max-width:1100px){
+  .menu{gap:18px}
+  .menu a.l{font-size:.84rem}
+}
 @media(max-width:1000px){
   section{padding:80px 0}
   .burger{display:block}
-  .menu{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);transition:.6s var(--ease);z-index:250}
-  .menu.o{transform:none}
+  .menu{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;gap:26px;transform:translateX(100%);visibility:hidden;transition:transform .6s var(--ease),visibility 0s .6s;z-index:250}
+  .menu.o{transform:none;visibility:visible;transition:transform .6s var(--ease)}
   .menu a.l{font-size:1.5rem}
+  .hero{min-height:auto}
   .hero-g,.find-g,.auth-g,.ba-g,.wa-g,.ct-g{grid-template-columns:1fr;gap:50px}
-  .hero-img{max-width:420px;margin:auto}
-  .float.a{left:-6px}
+  .ba-g{margin-top:80px}
+  .hero-img{max-width:420px;margin:auto;width:100%}
+  .float.a{left:8px}
+  .float.b{right:8px}
   .pillars .wrap{grid-template-columns:1fr}
   .pil{border-right:0;border-bottom:1px solid var(--lineD)}
   .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
-  .bx:nth-child(1){grid-column:span 2}.bx:nth-child(4){grid-column:span 2}
+  .bx:nth-child(n){grid-column:span 1;grid-row:span 1}
+  .bx:nth-child(1){grid-column:span 2}
+  .bx:nth-child(6){grid-column:span 2}
   .rev-g{grid-template-columns:1fr}
   .ig{grid-template-columns:repeat(3,1fr)}
-  .fg{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr;gap:34px}
   .fab span{display:none}.fab{padding:10px}
-  .stats{grid-template-columns:1fr 1fr 1fr}
   form{padding:26px}
+  .map{height:300px}
+}
+@media(max-width:520px){
+  .gcard{padding:24px}
+  .stat{padding:16px 14px}
+  .stats{gap:10px}
+  .btn{padding:15px 22px}
+  .gbtns .btn{flex:1}
+  .float{padding:12px 14px}
+  .float b{font-size:1.5rem}
+  .ph-body{min-height:300px}
+}
+@media(hover:none){
+  .bx p{max-height:90px;opacity:1}
+  .bx .go{transform:none}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv-in,.msg{opacity:1;transform:none}}
 </style>
 </head>
 <body>
+
+<!-- icones -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.1 8.6 22 9.4 16.9 14.2 18.2 21.2 12 17.8 5.8 21.2 7.1 14.2 2 9.4 8.9 8.6" fill="currentColor"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 01-13.4 7.8L3 21l1.3-4.4A9 9 0 1121 12z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="i-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></symbol>
+</svg>
+
 <div id="bar"></div>
 
 <header id="hd">
   <div class="wrap nav">
     <a class="logo" href="#home"><b>C</b>Carmen Bastos</a>
-    <button class="burger" id="bg" aria-label="Menu"><i></i><i></i></button>
+    <button class="burger" id="bg" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i></button>
     <ul class="menu" id="mn">
       <li><a class="l on" href="#home">Início</a></li>
-      <li><a class="l" href="#achar">Ache a gente</a></li>
-      <li><a class="l" href="#autoridade">Resultados</a></li>
+      <li><a class="l" href="#captacao">Captação</a></li>
+      <li><a class="l" href="#autoridade">Autoridade</a></li>
       <li><a class="l" href="#servicos">Serviços</a></li>
-      <li><a class="l" href="#avaliacoes">Avaliações</a></li>
+      <li><a class="l" href="#whatsapp">WhatsApp 24h</a></li>
       <li><a class="btn btn-c" style="padding:12px 24px" href="#contato">Agendar</a></li>
     </ul>
   </div>
@@ -291,56 +356,66 @@ footer a:hover{color:var(--coral2)}
     <div>
       <span class="tag rv-in">Salão &amp; Estética · Barueri</span>
       <h1 class="rv-in">Cabelo de <span>alto nível</span>, com cuidado de verdade.</h1>
-      <p class="sub rv-in">Protocolos personalizados para loiras, luzes, coloração e tratamentos, em um espaço acolhedor. Nota 5,0 no Google, e você agenda pelo WhatsApp a qualquer hora.</p>
+      <p class="sub rv-in">Protocolos personalizados para loiros, luzes, coloração e tratamentos, em um espaço acolhedor. Nota 5,0 no Google e pedido de horário pelo WhatsApp a qualquer hora.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap" class="rv-in">
-        <a class="btn btn-c" href="#" data-wpp>Agendar no WhatsApp →</a>
+        <a class="btn btn-c" href="#" data-wpp>Agendar no WhatsApp <svg class="ic"><use href="#i-arrow"/></svg></a>
         <a class="btn btn-g" href="#autoridade">Ver resultados</a>
       </div>
       <div class="chips rv-in">
-        <div class="chip">★ <b>5,0</b> no Google</div>
+        <div class="chip"><svg class="ic"><use href="#i-star"/></svg><b>5,0</b> no Google</div>
         <div class="chip"><b>19</b> avaliações reais</div>
-        <div class="chip">💬 Resposta <b>24h</b></div>
+        <div class="chip"><svg class="ic"><use href="#i-chat"/></svg>Pedidos <b>24h</b> por dia</div>
       </div>
     </div>
     <div class="hero-img rv-in">
       <div class="img" data-img="hero">Foto principal</div>
       <div class="float a"><b>5,0</b><small>nota no Google Maps</small></div>
-      <div class="float b"><b>24h</b><small>agendamento online</small></div>
+      <div class="float b"><b>24h</b><small>pedido pelo WhatsApp</small></div>
     </div>
   </div>
 </section>
 
-<!-- 3 PILARES -->
+<!-- AS TRES ENTREGAS -->
 <div class="pillars"><div class="wrap">
-  <div class="pil"><em>01</em><div><b>Encontre no Google e Instagram</b><span>Presença ativa onde você já procura.</span></div></div>
-  <div class="pil"><em>02</em><div><b>Autoridade comprovada</b><span>Método, resultados e avaliações reais.</span></div></div>
-  <div class="pil"><em>03</em><div><b>WhatsApp 24h, sem perder contato</b><span>Seu pedido registrado a qualquer hora.</span></div></div>
+  <a class="pil" href="#captacao"><em>01</em><div><b>Captação ativa de novos clientes</b><span>Presença no Google e nas redes sociais, onde você já procura.</span></div></a>
+  <a class="pil" href="#autoridade"><em>02</em><div><b>Autoridade que justifica um ticket maior</b><span>Método, resultado e avaliações reais que sustentam o valor.</span></div></a>
+  <a class="pil" href="#whatsapp"><em>03</em><div><b>WhatsApp 24h, sem perder lead</b><span>Todo pedido chega pronto, a qualquer hora do dia.</span></div></a>
 </div></div>
 
-<!-- ACHE A GENTE -->
-<section id="achar">
+<!-- ENTREGA 01 -->
+<section id="captacao">
   <div class="wrap">
     <div class="find-g">
       <div>
-        <span class="tag rv-in">Entrega 01 · Captação</span>
+        <span class="tag rv-in">Entrega 01 · Captação ativa</span>
         <h2 class="h2 rv-in">Procurou salão em Barueri? <span>Nós estamos lá.</span></h2>
-        <p class="sub rv-in">Aparecemos no Google Maps, mostramos nosso trabalho no Instagram e respondemos rápido no WhatsApp. Escolha o caminho mais fácil para você.</p>
+        <p class="sub rv-in">Quem busca um salão na região encontra o Studio no Google, vê o trabalho no Instagram e chega ao WhatsApp em um toque.</p>
+        <ul class="chan rv-in">
+          <li><i><svg class="ic"><use href="#i-search"/></svg></i><div><b>Google</b><span>Perfil no Maps com nota 5,0 e site otimizado para busca local.</span></div></li>
+          <li><i><svg class="ic"><use href="#i-insta"/></svg></i><div><b>Instagram</b><span>Resultados reais e bastidores atualizados com frequência.</span></div></li>
+          <li><i><svg class="ic"><use href="#i-chat"/></svg></i><div><b>WhatsApp</b><span>Cada canal leva direto para a conversa de agendamento.</span></div></li>
+        </ul>
         <div class="gbtns rv-in" style="margin-top:30px">
-          <a class="btn btn-c" id="lnkMaps" target="_blank" rel="noopener" href="#">📍 Ver no Google Maps</a>
-          <a class="btn btn-g" id="lnkIg" target="_blank" rel="noopener" href="#">Seguir no Instagram</a>
+          <a class="btn btn-c" id="lnkMaps" target="_blank" rel="noopener" href="#"><svg class="ic"><use href="#i-pin"/></svg>Ver no Google Maps</a>
+          <a class="btn btn-g ig-link" id="lnkIg" target="_blank" rel="noopener" href="#">Seguir no Instagram</a>
         </div>
       </div>
       <div class="gcard rv-in">
         <div class="top"><div class="g"><i>G</i></div><div><b>Studio Carmen Bastos</b><br><small style="color:var(--mutedD)">Salão de beleza · Vila Boa Vista, Barueri</small></div></div>
-        <div class="rt"><b>5,0</b><div><div class="st">★★★★★</div><small style="color:var(--mutedD)">19 avaliações no Google</small></div></div>
-        <ul><li>Atendimento carinhoso e explicativo</li><li>Ambiente limpo, organizado e acolhedor</li><li>Produtos de primeira linha</li><li>Espaço aberto a toda a comunidade, incluindo LGBTQ+</li></ul>
+        <div class="rt"><b>5,0</b><div><div class="st" data-stars></div><small style="color:var(--mutedD)">19 avaliações no Google</small></div></div>
+        <ul>
+          <li><svg class="ic"><use href="#i-check"/></svg>Atendimento carinhoso e explicativo</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Ambiente limpo, organizado e acolhedor</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Produtos de primeira linha</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Espaço aberto a toda a comunidade, incluindo LGBTQ+</li>
+        </ul>
         <div class="gbtns"><a class="btn btn-d" id="lnkRoute" target="_blank" rel="noopener" href="#">Como chegar</a><a class="btn btn-w" href="#" data-wpp>WhatsApp</a></div>
       </div>
     </div>
 
     <div class="ig-h rv-in">
       <div><span class="tag">Instagram</span><h2 class="h2" style="font-size:clamp(1.8rem,3.6vw,2.8rem);margin:0">Nosso trabalho, <span>todo dia</span></h2></div>
-      <a class="btn btn-g" id="lnkIg2" target="_blank" rel="noopener" href="#">Ver perfil →</a>
+      <a class="btn btn-g ig-link" id="lnkIg2" target="_blank" rel="noopener" href="#">Ver perfil <svg class="ic"><use href="#i-arrow"/></svg></a>
     </div>
     <div class="ig rv-in">
       <div class="img" data-img="ig1">Post 1</div><div class="img" data-img="ig2">Post 2</div><div class="img" data-img="ig3">Post 3</div>
@@ -349,19 +424,19 @@ footer a:hover{color:var(--coral2)}
   </div>
 </section>
 
-<!-- AUTORIDADE -->
+<!-- ENTREGA 02 -->
 <section class="light" id="autoridade">
   <div class="wrap">
     <div class="auth-g">
       <div class="rv-in"><div class="img" data-img="carmen">Foto da Carmen</div></div>
       <div>
-        <span class="tag rv-in">Entrega 02 · Autoridade</span>
+        <span class="tag rv-in">Entrega 02 · Autoridade e credibilidade</span>
         <h2 class="h2 rv-in">Resultado que <span>justifica</span> o investimento.</h2>
-        <p class="sub rv-in">A Carmen comanda o studio com foco em diagnóstico, explicação clara e produtos profissionais. Você entende o que vai ser feito e por que, e vê a diferença no espelho.</p>
+        <p class="sub rv-in">A Carmen comanda o studio com foco em diagnóstico, explicação clara e produtos profissionais. Você entende o que será feito e por que, e vê a diferença no espelho. Quando o processo é transparente, o valor fica evidente.</p>
         <div class="stats rv-in">
           <div class="stat"><b data-c="5" data-s=",0">0</b><small>Nota no Google</small></div>
-          <div class="stat"><b data-c="19">0</b><small>Avaliações</small></div>
-          <div class="stat"><b data-c="100" data-s="%">0</b><small>5 estrelas</small></div>
+          <div class="stat"><b data-c="19">0</b><small>Avaliações reais</small></div>
+          <div class="stat"><b data-c="100" data-s="%">0</b><small>Avaliações 5 estrelas</small></div>
         </div>
         <div class="steps">
           <div class="step rv-in"><i>1</i><div><b>Diagnóstico do seu cabelo</b><span>Avaliamos fio, histórico químico e objetivo antes de qualquer decisão.</span></div></div>
@@ -371,76 +446,76 @@ footer a:hover{color:var(--coral2)}
       </div>
     </div>
 
-    <div class="ba-g" style="margin-top:110px">
+    <div class="ba-g">
       <div class="cmp rv-in" id="cmp">
         <div class="img before" data-img="before">Antes</div>
         <div class="img after" data-img="after">Depois</div>
         <span class="lbl l">Antes</span><span class="lbl r">Depois</span>
-        <div class="hd" id="hd2"></div>
+        <div class="hd" id="hd2"><span><svg class="ic"><use href="#i-swap"/></svg></span></div>
         <input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois" id="rg">
       </div>
       <div>
         <span class="tag rv-in">Antes &amp; depois</span>
-        <h2 class="h2 rv-in" style="font-size:clamp(2rem,4vw,3.2rem)">Arraste e <span>veja a diferença</span></h2>
+        <h2 class="h2 rv-in" style="font-size:clamp(1.9rem,3.8vw,3.2rem)">Arraste e <span>veja a diferença</span></h2>
         <ul class="ticks rv-in">
-          <li>Recuperação de cabelos descoloridos com protocolo SOS</li>
-          <li>Loiros e luzes com brilho e fio saudável</li>
-          <li>Produtos de primeira e técnica explicada a você</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Recuperação de cabelos descoloridos com protocolo SOS</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Loiros e luzes com brilho e fio saudável</li>
+          <li><svg class="ic"><use href="#i-check"/></svg>Produtos de primeira e técnica explicada a você</li>
         </ul>
-        <a class="btn btn-d rv-in" href="#" data-wpp>Quero um resultado assim →</a>
+        <a class="btn btn-d rv-in" href="#" data-wpp>Quero um resultado assim <svg class="ic"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVIÇOS -->
+<!-- SERVICOS -->
 <section id="servicos">
   <div class="wrap">
     <span class="tag rv-in">Serviços</span>
     <h2 class="h2 rv-in">Escolha o seu <span>cuidado</span></h2>
-    <p class="sub rv-in">Clique em um serviço e já deixamos o pedido pronto para o WhatsApp.</p>
+    <p class="sub rv-in">Toque em um serviço e a mensagem já fica pronta no WhatsApp.</p>
     <div class="bento" id="bento"></div>
   </div>
 </section>
 
-<!-- AVALIAÇÕES -->
+<!-- AVALIACOES -->
 <section id="avaliacoes" style="background:var(--ink2)">
   <div class="wrap">
     <span class="tag rv-in">Prova social</span>
     <h2 class="h2 rv-in">Quem veio, <span>recomenda.</span></h2>
     <div class="rev-g">
-      <div class="rv rv-in"><div class="st">★★★★★</div><p>Lugar aconchegante, limpo e organizado. A Carmen explicou super bem meu tratamento. Fiz um protocolo SOS para cabelos loiros, nem parece que fiz luzes há pouco tempo. Super recomendo!</p><div class="au"><i>I</i>Iasmin Bastos</div></div>
-      <div class="rv rv-in"><div class="st">★★★★★</div><p>Maravilhosa, excelente atendimento, produtos de primeira. A Carmen é sem palavras, amei!</p><div class="re"><b>Resposta da proprietária:</b> Feliz por você ter gostado, é imensamente um prazer te receber em meu espaço.</div><div class="au"><i>A</i>Ana Paula Tchalian</div></div>
-      <div class="rv rv-in"><div class="st">★★★★★</div><p>Super indico essas grandes profissionais. Estou muito feliz com o resultado, quero agradecer o carinho de vocês. Parabéns, meninas! Voltarei, viu?</p><div class="re"><b>Resposta da proprietária:</b> Obrigada por suas palavras! Estamos sempre prontos para atender você.</div><div class="au"><i>L</i>Lurdes Costa</div></div>
+      <div class="rv rv-in"><div class="st" data-stars></div><p>Lugar aconchegante, limpo e organizado. A Carmen explicou super bem meu tratamento. Fiz um protocolo SOS para cabelos loiros, nem parece que fiz luzes há pouco tempo. Super recomendo!</p><div class="au"><i>I</i>Iasmin Bastos</div></div>
+      <div class="rv rv-in"><div class="st" data-stars></div><p>Maravilhosa, excelente atendimento, produtos de primeira. A Carmen é sem palavras, amei!</p><div class="re"><b>Resposta da proprietária:</b> Feliz por você ter gostado, é imensamente um prazer te receber em meu espaço.</div><div class="au"><i>A</i>Ana Paula Tchalian</div></div>
+      <div class="rv rv-in"><div class="st" data-stars></div><p>Super indico essas grandes profissionais. Estou muito feliz com o resultado, quero agradecer o carinho de vocês. Parabéns, meninas! Voltarei, viu?</p><div class="re"><b>Resposta da proprietária:</b> Obrigada por suas palavras! Estamos sempre prontos para atender você.</div><div class="au"><i>L</i>Lurdes Costa</div></div>
     </div>
     <div class="mini rv-in">
       <span>“Ótima profissional, adorei tudo.”</span><span>“Hiperqualificados!”</span><span>“Meu cabelo ficou lindo, nota mil.”</span>
     </div>
-    <a class="btn btn-c rv-in" id="lnkMaps2" style="margin-top:36px" target="_blank" rel="noopener" href="#">Ver todas no Google →</a>
+    <a class="btn btn-c rv-in" id="lnkMaps2" style="margin-top:36px" target="_blank" rel="noopener" href="#">Ver todas no Google <svg class="ic"><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
-<!-- WHATSAPP 24H -->
+<!-- ENTREGA 03 -->
 <section class="wa" id="whatsapp">
   <div class="wrap wa-g">
     <div>
-      <span class="tag rv-in" style="color:#25d366">Entrega 03 · Atendimento</span>
-      <h2 class="h2 rv-in">Agende a qualquer hora. <span style="color:#25d366">Sem esperar.</span></h2>
-      <p class="sub rv-in">Madrugada, domingo ou intervalo do almoço: seu pedido fica registrado e a conversa já abre no WhatsApp com tudo preenchido.</p>
+      <span class="tag rv-in" style="color:#25d366">Entrega 03 · Atendimento integrado</span>
+      <h2 class="h2 rv-in">Peça seu horário a qualquer hora. <span style="color:#25d366">Sem perder o contato.</span></h2>
+      <p class="sub rv-in">Madrugada, domingo ou intervalo do almoço: o pedido sai do site já completo e abre direto no WhatsApp da Carmen. Nenhuma conversa começa do zero.</p>
       <ul class="feat rv-in">
-        <li><i>1</i><div><b>Assistente 24h no site</b><span>Pergunta serviço, período e nome em segundos.</span></div></li>
+        <li><i>1</i><div><b>Assistente guiada, 24h no site</b><span>Serviço, período e nome em poucos toques.</span></div></li>
         <li><i>2</i><div><b>Mensagem pronta no WhatsApp</b><span>Você só toca em enviar. Sem formulário longo.</span></div></li>
-        <li><i>3</i><div><b>Nenhum pedido se perde</b><span>Cada contato é registrado e a equipe responde assim que abre.</span></div></li>
+        <li><i>3</i><div><b>Pedido completo para a equipe</b><span>A equipe recebe nome, serviço e período e responde assim que abrir.</span></div></li>
       </ul>
-      <button class="btn btn-w rv-in" onclick="openChat()">💬 Falar com a assistente</button>
+      <button class="btn btn-w rv-in" onclick="openChat()"><svg class="ic"><use href="#i-chat"/></svg>Falar com a assistente</button>
     </div>
     <div class="phone rv-in">
-      <div class="ph-top"><i>C</i><div><b>Studio Carmen Bastos</b><small>● online 24h</small></div></div>
+      <div class="ph-top"><i>C</i><div><b>Studio Carmen Bastos</b><small>Atendimento 24h</small></div></div>
       <div class="ph-body">
-        <div class="msg in">Oi! Quero fazer luzes. Tem horário? 02:14<small>02:14</small></div>
-        <div class="msg in" style="background:#005c4b;align-self:flex-end;border-radius:14px 2px 14px 14px">Oi! Recebemos seu pedido ✨ Retornamos assim que abrirmos com os horários.<small>02:14 ✓✓</small></div>
-        <div class="msg in">Perfeito, obrigada! 😍<small>02:15</small></div>
-        <div class="msg in" style="background:#005c4b;align-self:flex-end;border-radius:14px 2px 14px 14px">Bom dia! Tenho terça às 09h. Posso reservar?<small>09:00 ✓✓</small></div>
+        <div class="msg in">Oi! Quero fazer luzes. Tem horário?<small>02:14</small></div>
+        <div class="msg out">Oi! Recebemos seu pedido. Retornamos assim que abrirmos, com os horários disponíveis.<small>02:14</small></div>
+        <div class="msg in">Perfeito, obrigada!<small>02:15</small></div>
+        <div class="msg out">Bom dia! Tenho terça às 09h. Posso reservar para você?<small>09:00</small></div>
       </div>
     </div>
   </div>
@@ -455,21 +530,21 @@ footer a:hover{color:var(--coral2)}
         <h2 class="h2 rv-in">Vamos cuidar do <span>seu cabelo?</span></h2>
         <p class="sub rv-in">Preencha e enviamos direto para o WhatsApp da Carmen.</p>
         <div class="info rv-in">
-          <div><i>📍</i><span><b>Endereço</b>R. Rio Grande do Sul, 143 · Vila Boa Vista<br>Barueri · SP · 06415-160</span></div>
-          <div><i>📞</i><span><b>Telefone / WhatsApp</b>(11) 94496-9632</span></div>
-          <div><i>🕘</i><span><b>Horário</b>Consulte os dias e horários no WhatsApp</span></div>
+          <div><i><svg class="ic"><use href="#i-pin"/></svg></i><span><b>Endereço</b>R. Rio Grande do Sul, 143 · Vila Boa Vista<br>Barueri · SP · 06415-160</span></div>
+          <div><i><svg class="ic"><use href="#i-phone"/></svg></i><span><b>Telefone / WhatsApp</b>(11) 94496-9632</span></div>
+          <div><i><svg class="ic"><use href="#i-clock"/></svg></i><span><b>Horário</b>Consulte os dias e horários no WhatsApp</span></div>
         </div>
       </div>
       <form id="fm" class="rv-in">
-        <div class="f"><input id="nome" required placeholder=" "><label for="nome">SEU NOME</label></div>
-        <div class="f"><input id="tel" required placeholder=" " inputmode="tel"><label for="tel">SEU TELEFONE</label></div>
+        <div class="f"><input id="nome" required placeholder=" " autocomplete="name"><label for="nome">SEU NOME</label></div>
+        <div class="f"><input id="tel" required minlength="14" placeholder=" " inputmode="tel" autocomplete="tel"><label for="tel">SEU TELEFONE</label></div>
         <div class="f"><select id="trat"><option value="">Selecione</option></select><label for="trat">SERVIÇO</label></div>
         <div class="f"><select id="per"><option>Manhã</option><option>Tarde</option><option>Noite</option><option>Sem preferência</option></select><label for="per">PERÍODO</label></div>
         <div class="f"><textarea id="msg" rows="3" placeholder=" "></textarea><label for="msg">MENSAGEM (OPCIONAL)</label></div>
-        <button class="btn btn-w" style="justify-content:center" type="submit">Enviar pelo WhatsApp →</button>
+        <button class="btn btn-w" type="submit">Enviar pelo WhatsApp <svg class="ic"><use href="#i-arrow"/></svg></button>
       </form>
     </div>
-    <div class="map rv-in"><iframe loading="lazy" title="Mapa" src="https://www.google.com/maps?q=R.+Rio+Grande+do+Sul,+143,+Vila+Boa+Vista,+Barueri,+SP&output=embed"></iframe></div>
+    <div class="map rv-in"><iframe loading="lazy" title="Mapa do Studio Carmen Bastos" src="https://www.google.com/maps?q=R.+Rio+Grande+do+Sul,+143,+Vila+Boa+Vista,+Barueri,+SP&output=embed"></iframe></div>
   </div>
 </section>
 
@@ -477,26 +552,27 @@ footer a:hover{color:var(--coral2)}
   <div class="wrap">
     <div class="fg">
       <div><h4>Studio Carmen Bastos</h4><p style="font-size:.9rem">Beleza e estética em Barueri, com atendimento carinhoso, produtos de primeira e resultado que você vê.</p></div>
-      <div><h4>Navegue</h4><ul><li><a href="#achar">Ache a gente</a></li><li><a href="#autoridade">Resultados</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#avaliacoes">Avaliações</a></li></ul></div>
+      <div><h4>Navegue</h4><ul><li><a href="#captacao">Captação</a></li><li><a href="#autoridade">Autoridade</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#avaliacoes">Avaliações</a></li><li><a href="#whatsapp">WhatsApp 24h</a></li></ul></div>
       <div><h4>Contato</h4><ul><li>(11) 94496-9632</li><li>R. Rio Grande do Sul, 143 – Vila Boa Vista</li><li>Barueri/SP – 06415-160</li></ul></div>
     </div>
     <div class="copy">© <span id="yr"></span> Studio Carmen Bastos Beleza e Estética. Todos os direitos reservados.</div>
   </div>
 </footer>
 
-<!-- CHAT -->
-<button class="fab" id="fab" aria-label="Abrir atendimento"><i>💬</i><span>Agendar agora<small>Atendimento 24h</small></span></button>
-<div class="chat" id="chat" role="dialog" aria-label="Assistente">
-  <div class="ch-h"><div><b>Assistente Carmen Bastos</b><small>● Atendimento 24h</small></div><button onclick="closeChat()" aria-label="Fechar">×</button></div>
+<!-- ASSISTENTE -->
+<button class="fab" id="fab" aria-label="Abrir atendimento"><i><svg class="ic"><use href="#i-chat"/></svg></i><span>Agendar agora<small>Atendimento 24h</small></span></button>
+<div class="chat" id="chat" role="dialog" aria-label="Assistente de agendamento">
+  <div class="ch-h"><div><b>Assistente Carmen Bastos</b><small>Atendimento 24h</small></div><button onclick="closeChat()" aria-label="Fechar"><svg class="ic"><use href="#i-close"/></svg></button></div>
   <div class="ch-b" id="chb"></div>
   <div class="qr" id="qr"></div>
 </div>
-<button class="up" id="up" aria-label="Topo">↑</button>
+<button class="up" id="up" aria-label="Voltar ao topo"><svg class="ic"><use href="#i-up"/></svg></button>
 
 <script>
-/* ===== CONFIGURAÇÃO ===== */
+/* ===== CONFIGURACAO ===== */
 const WPP = "5511944969632";
-const INSTAGRAM = "https://instagram.com/SEU_USUARIO";   // <-- troque pelo perfil real
+const INSTAGRAM = "https://instagram.com/SEU_USUARIO";   // troque pelo perfil real
+const LEAD_ENDPOINT = "";  // opcional: URL (Google Apps Script, Formspree, etc.) que recebe cada pedido em JSON
 const MAPS = "https://www.google.com/maps/search/?api=1&query=Studio+Carmen+Bastos+Beleza+e+Est%C3%A9tica+Barueri";
 const ROUTE = "https://www.google.com/maps/dir/?api=1&destination=R.+Rio+Grande+do+Sul,+143,+Vila+Boa+Vista,+Barueri,+SP";
 
@@ -520,14 +596,38 @@ const SERVICES = [
 
 /* ===== UTILIDADES ===== */
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const ICON=n=>`<svg class="ic"><use href="#i-${n}"/></svg>`;
 
 /* origem do lead (UTM / referrer) */
 const qs=new URLSearchParams(location.search);
-const ORIGEM = qs.get("utm_source") || (document.referrer? new URL(document.referrer).hostname : "direto");
+let refHost="direto"; try{ if(document.referrer) refHost=new URL(document.referrer).hostname }catch(e){}
+const ORIGEM = qs.get("utm_source") || refHost;
 function track(ev,data={}){ (window.dataLayer=window.dataLayer||[]).push({event:ev,origem:ORIGEM,...data}); if(window.gtag) gtag("event",ev,data); }
-function saveLead(l){ try{const a=JSON.parse(localStorage.getItem("leads")||"[]"); a.push({...l,origem:ORIGEM,quando:new Date().toISOString()}); localStorage.setItem("leads",JSON.stringify(a));}catch(e){} }
-const wpp=(t)=>`https://wa.me/${WPP}?text=${encodeURIComponent(t)}`;
-const baseMsg="Olá, Carmen! Gostaria de agendar um horário. ✨";
+function saveLead(l){
+  const reg={...l,origem:ORIGEM,quando:new Date().toISOString()};
+  try{const a=JSON.parse(localStorage.getItem("leads")||"[]"); a.push(reg); localStorage.setItem("leads",JSON.stringify(a));}catch(e){}
+  if(LEAD_ENDPOINT){
+    try{
+      const body=JSON.stringify(reg);
+      if(navigator.sendBeacon) navigator.sendBeacon(LEAD_ENDPOINT,new Blob([body],{type:"text/plain"}));
+      else fetch(LEAD_ENDPOINT,{method:"POST",body,keepalive:true,mode:"no-cors"});
+    }catch(e){}
+  }
+}
+const wpp=t=>`https://wa.me/${WPP}?text=${encodeURIComponent(t)}`;
+const baseMsg="Olá, Carmen! Gostaria de agendar um horário.";
+
+/* estrelas */
+$$("[data-stars]").forEach(el=>el.innerHTML=ICON("star").repeat(5));
+
+/* servicos (criados antes do carregamento das imagens) */
+$("#bento").innerHTML=SERVICES.map(s=>`
+  <div class="bx rv-in" data-s="${s.n}" tabindex="0" role="button" aria-label="${s.n}">
+    <div class="img" data-img="${s.i}"></div>
+    <div class="go">${ICON("arrow")}</div>
+    <div><h3>${s.n}</h3><p>${s.d}</p></div>
+  </div>`).join("");
+$("#trat").innerHTML+=SERVICES.map(s=>`<option>${s.n}</option>`).join("");
 
 /* imagens com fallback */
 $$("[data-img]").forEach(el=>{
@@ -538,38 +638,34 @@ $$("[data-img]").forEach(el=>{
 /* links */
 $$("[data-wpp]").forEach(a=>{a.href=wpp(baseMsg);a.target="_blank";a.rel="noopener";a.addEventListener("click",()=>track("click_whatsapp"))});
 ["lnkMaps","lnkMaps2"].forEach(i=>$("#"+i).href=MAPS);
-$("#lnkRoute").href=ROUTE; $("#lnkIg").href=INSTAGRAM; $("#lnkIg2").href=INSTAGRAM;
+$("#lnkRoute").href=ROUTE;
+if(INSTAGRAM.includes("SEU_USUARIO")){ $$(".ig-link").forEach(a=>a.style.display="none"); }
+else { $("#lnkIg").href=INSTAGRAM; $("#lnkIg2").href=INSTAGRAM; }
 $("#yr").textContent=new Date().getFullYear();
 
-/* serviços */
-$("#bento").innerHTML=SERVICES.map(s=>`
-  <div class="bx rv-in" data-s="${s.n}" tabindex="0" role="button">
-    <div class="img" data-img="${s.i}">${s.n}</div>
-    <div class="go">→</div>
-    <div><h3>${s.n}</h3><p>${s.d}</p></div>
-  </div>`).join("");
-$("#trat").innerHTML+=SERVICES.map(s=>`<option>${s.n}</option>`).join("");
-$$("#bento .img").forEach(el=>{const src=IMG[el.dataset.img];const t=new Image();t.onload=()=>{el.style.backgroundImage=`url(${src})`;el.classList.add("loaded")};t.src=src});
 $("#bento").addEventListener("click",e=>{
   const b=e.target.closest(".bx"); if(!b) return;
   track("click_servico",{servico:b.dataset.s});
-  window.open(wpp(`Olá, Carmen! Tenho interesse em: ${b.dataset.s}. Quais horários você tem? ✨`),"_blank");
+  window.open(wpp(`Olá, Carmen! Tenho interesse em: ${b.dataset.s}. Quais horários você tem?`),"_blank","noopener");
 });
-$("#bento").addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();e.target.click()}});
+$("#bento").addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&e.target.classList.contains("bx")){e.preventDefault();e.target.click()}});
 
 /* menu / scroll */
 const bg=$("#bg"),mn=$("#mn");
-bg.onclick=()=>{bg.classList.toggle("o");mn.classList.toggle("o");document.body.style.overflow=mn.classList.contains("o")?"hidden":""};
-$$("#mn a").forEach(a=>a.addEventListener("click",()=>{bg.classList.remove("o");mn.classList.remove("o");document.body.style.overflow=""}));
+function setMenu(o){bg.classList.toggle("o",o);mn.classList.toggle("o",o);bg.setAttribute("aria-expanded",o);document.body.style.overflow=o?"hidden":""}
+bg.onclick=()=>setMenu(!mn.classList.contains("o"));
+$$("#mn a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));
+addEventListener("resize",()=>{if(innerWidth>1000)setMenu(false)});
 const secs=$$("section[id]"),links=$$("a.l");
-addEventListener("scroll",()=>{
-  const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+function onScroll(){
+  const y=scrollY,h=Math.max(1,document.documentElement.scrollHeight-innerHeight);
   $("#hd").classList.toggle("s",y>50);
   $("#bar").style.width=(y/h*100)+"%";
   $("#up").classList.toggle("show",y>800);
   let cur="home";secs.forEach(s=>{if(y>=s.offsetTop-220)cur=s.id});
   links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+cur));
-},{passive:true});
+}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
 $("#up").onclick=()=>scrollTo({top:0,behavior:"smooth"});
 
 /* reveal + contadores */
@@ -582,9 +678,9 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(!e.isIntersecting)return;
   e.target.classList.add("in");
   if(e.target.dataset.c)count(e.target);
-  e.target.querySelectorAll&&e.target.querySelectorAll("[data-c]").forEach(count);
+  e.target.querySelectorAll("[data-c]").forEach(count);
   io.unobserve(e.target);
-}),{threshold:.12});
+}),{threshold:.1});
 $$(".rv-in,[data-c]").forEach(el=>io.observe(el));
 
 /* comparador antes/depois */
@@ -594,43 +690,45 @@ rg.addEventListener("input",()=>{
   $("#hd2").style.left=rg.value+"%";
 });
 
-/* máscara de telefone */
+/* mascara de telefone */
 $("#tel").addEventListener("input",e=>{
   let v=e.target.value.replace(/\D/g,"").slice(0,11);
-  v=v.replace(/^(\d{2})(\d)/,"($1) $2").replace(/(\d{5})(\d{1,4})$/,"$1-$2");
+  if(v.length>10) v=v.replace(/^(\d{2})(\d{5})(\d{0,4}).*/,"($1) $2-$3");
+  else if(v.length>6) v=v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/,"($1) $2-$3");
+  else if(v.length>2) v=v.replace(/^(\d{2})(\d{0,5}).*/,"($1) $2");
   e.target.value=v;
 });
 $("#fm").addEventListener("submit",e=>{
   e.preventDefault();
-  const l={nome:$("#nome").value,tel:$("#tel").value,servico:$("#trat").value,periodo:$("#per").value};
+  const l={nome:$("#nome").value.trim(),tel:$("#tel").value,servico:$("#trat").value,periodo:$("#per").value};
   saveLead(l); track("lead_formulario",l);
   const t=`Olá, Carmen! Meu nome é ${l.nome}.\nTelefone: ${l.tel}\n`+(l.servico?`Serviço: ${l.servico}\n`:"")+`Período preferido: ${l.periodo}\n`+($("#msg").value?`Obs: ${$("#msg").value}\n`:"")+`(via site · origem: ${ORIGEM})`;
-  window.open(wpp(t),"_blank");
+  window.open(wpp(t),"_blank","noopener");
 });
 
 /* ===== ASSISTENTE 24H ===== */
 const chat=$("#chat"),chb=$("#chb"),qr=$("#qr");
-let st={step:0,servico:"",periodo:"",nome:""},started=false;
+let st={servico:"",periodo:"",nome:""},started=false;
 function say(t,cls="bot"){const d=document.createElement("div");d.className="m "+cls;d.textContent=t;chb.appendChild(d);chb.scrollTop=chb.scrollHeight}
-function opts(list,fn){qr.innerHTML="";list.forEach(o=>{const b=document.createElement("button");b.textContent=o;b.onclick=()=>fn(o);qr.appendChild(b)})}
+function opts(list,fn){qr.innerHTML="";list.forEach(o=>{const b=document.createElement("button");b.type="button";b.textContent=o;b.onclick=()=>fn(o);qr.appendChild(b)})}
 function stepServico(){
-  say("Oi! 👋 Sou a assistente do Studio Carmen Bastos e atendo 24h. Qual serviço você procura?");
+  say("Olá! Sou a assistente do Studio Carmen Bastos e atendo 24h. Qual serviço você procura?");
   opts(SERVICES.map(s=>s.n),o=>{st.servico=o;say(o,"me");stepPeriodo()});
 }
 function stepPeriodo(){
-  setTimeout(()=>{say("Ótima escolha! Qual período é melhor para você?");
+  setTimeout(()=>{say("Ótima escolha. Qual período é melhor para você?");
   opts(["Manhã","Tarde","Noite","Qualquer um"],o=>{st.periodo=o;say(o,"me");stepNome()})},400);
 }
 function stepNome(){
-  setTimeout(()=>{say("Quase lá! Como posso te chamar?");
-  qr.innerHTML='<input id="cn" placeholder="Seu nome" aria-label="Seu nome"><button id="cs">Enviar</button>';
+  setTimeout(()=>{say("Quase lá. Como posso te chamar?");
+  qr.innerHTML='<input id="cn" placeholder="Seu nome" aria-label="Seu nome"><button type="button" id="cs">Enviar</button>';
   const go=()=>{const v=$("#cn").value.trim();if(!v)return;st.nome=v;say(v,"me");stepFim()};
   $("#cs").onclick=go;$("#cn").addEventListener("keydown",e=>{if(e.key==="Enter")go()});$("#cn").focus()},400);
 }
 function stepFim(){
   saveLead({...st}); track("lead_chat",{...st});
-  setTimeout(()=>{say(`Prontinho, ${st.nome}! Seu pedido de "${st.servico}" (${st.periodo}) está registrado. Toque abaixo para confirmar no WhatsApp 💚`);
-  qr.innerHTML="";const a=document.createElement("a");a.className="btn btn-w";a.style.cssText="width:100%;justify-content:center";a.target="_blank";a.rel="noopener";a.textContent="Abrir WhatsApp →";
+  setTimeout(()=>{say(`Prontinho, ${st.nome}! Seu pedido de "${st.servico}" (${st.periodo}) está montado. Toque abaixo para enviar no WhatsApp e confirmar com a equipe.`);
+  qr.innerHTML="";const a=document.createElement("a");a.className="btn btn-w";a.style.width="100%";a.target="_blank";a.rel="noopener";a.textContent="Abrir WhatsApp";
   a.href=wpp(`Olá, Carmen! Sou ${st.nome}. Quero agendar: ${st.servico}. Período preferido: ${st.periodo}. (via site · origem: ${ORIGEM})`);
   qr.appendChild(a)},500);
 }
@@ -639,4 +737,4 @@ function closeChat(){chat.classList.remove("open")}
 $("#fab").onclick=()=>chat.classList.contains("open")?closeChat():openChat();
 </script>
 </body>
-    </html>
+  </html>
